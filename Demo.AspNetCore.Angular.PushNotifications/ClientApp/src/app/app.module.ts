@@ -7,6 +7,8 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { WeatherForecastComponent } from './weather-forecast/weatherforecast.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import { WeatherForecastComponent } from './weather-forecast/weatherforecast.com
     FormsModule,
     RouterModule.forRoot([
       { path: '', component: WeatherForecastComponent, pathMatch: 'full' },
-    ])
+    ]),
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],
   bootstrap: [AppComponent]
