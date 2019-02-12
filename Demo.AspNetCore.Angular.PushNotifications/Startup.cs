@@ -1,9 +1,10 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Lib.Net.Http.WebPush;
+using Demo.AspNetCore.Angular.PushNotifications.Services;
 
 namespace Demo.AspNetCore.Angular.PushNotifications
 {
@@ -19,6 +20,11 @@ namespace Demo.AspNetCore.Angular.PushNotifications
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.Configure<PushNotificationsOptions>(Configuration.GetSection("PushNotifications"));
+            services.AddSingleton<IPushSubscriptionsService, PushSubscriptionsService>();
+            services.AddHttpClient<PushServiceClient>();
+            services.AddHostedService<PushNotificationsService>();
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             // In production, the Angular files will be served from this directory
