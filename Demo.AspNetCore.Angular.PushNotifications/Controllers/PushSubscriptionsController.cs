@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Net;
+using Microsoft.AspNetCore.Mvc;
 using Lib.Net.Http.WebPush;
 using Demo.AspNetCore.Angular.PushNotifications.Services;
 
@@ -24,7 +25,7 @@ namespace Demo.AspNetCore.Angular.PushNotifications.Controllers
         [HttpDelete("{endpoint}")]
         public void Delete(string endpoint)
         {
-            _pushSubscriptionsService.Delete(endpoint);
+            _pushSubscriptionsService.Delete(WebUtility.UrlDecode(endpoint));
         }
     }
 }

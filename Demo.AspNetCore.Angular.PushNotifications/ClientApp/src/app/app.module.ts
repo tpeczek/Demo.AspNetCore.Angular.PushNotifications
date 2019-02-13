@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
+import { PushSubscriberComponent } from './push-subscriber/pushsubscriber.component';
 import { WeatherForecastComponent } from './weather-forecast/weatherforecast.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
@@ -14,6 +15,7 @@ import { environment } from '../environments/environment';
   declarations: [
     AppComponent,
     NavMenuComponent,
+    PushSubscriberComponent,
     WeatherForecastComponent
   ],
   imports: [
