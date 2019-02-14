@@ -23,7 +23,7 @@ namespace Demo.AspNetCore.Angular.PushNotifications
             services.Configure<PushNotificationsOptions>(Configuration.GetSection("PushNotifications"));
             services.AddSingleton<IPushSubscriptionsService, PushSubscriptionsService>();
             services.AddHttpClient<PushServiceClient>();
-            services.AddHostedService<PushNotificationsService>();
+            services.AddHostedService<WeatherNotificationsProducer>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 

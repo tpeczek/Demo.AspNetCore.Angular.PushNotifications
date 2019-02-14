@@ -38,14 +38,20 @@ export class PushSubscriberComponent {
       this.swPush.requestSubscription({
         serverPublicKey: publicKey
       })
-        .then(subscription => this.httpClient.post(this.baseUrl + 'api/PushSubscriptions', subscription, this.httpOptions).subscribe(() => { }, error => console.error(error)))
+        .then(subscription => this.httpClient.post(this.baseUrl + 'api/PushSubscriptions', subscription, this.httpOptions).subscribe(
+          () => { },
+          error => console.error(error)
+        ))
         .catch(error => console.error(error));
     }, error => console.error(error));
   };
 
   private unsubscribe(endpoint) {
     this.swPush.unsubscribe()
-      .then(() => this.httpClient.delete(this.baseUrl + 'api/PushSubscriptions/' + encodeURIComponent(endpoint)).subscribe(() => { }, error => console.error(error)))
+      .then(() => this.httpClient.delete(this.baseUrl + 'api/PushSubscriptions/' + encodeURIComponent(endpoint)).subscribe(
+        () => { },
+        error => console.error(error)
+      ))
       .catch(error => console.error(error));
   }
 }
