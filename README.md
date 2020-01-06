@@ -4,6 +4,6 @@ Sample project for demonstrating Push Notifications based on Push API and Web Pu
 
 ## Copyright and License
 
-Copyright © 2019 Tomasz Pęczek
+Copyright © 2019 - 2020 Tomasz Pęczek
 
 Licensed under the [MIT License](https://github.com/tpeczek/Demo.AspNetCore.Angular.PushNotifications/blob/master/LICENSE.md)
